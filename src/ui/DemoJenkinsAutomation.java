@@ -39,7 +39,7 @@ public class DemoJenkinsAutomation {
 		browserstackOptions.put("seleniumVersion", "4.0.0");
 		capabilities.setCapability("bstack:options", browserstackOptions);
 		driver = new RemoteWebDriver(new URL("https://" + username + ":" + accessKey + "@hub.browserstack.com/wd/hub"), capabilities);
-		String ret = bstackdemoTestUtil(demo_username, demo_password);
+		String ret = bstackdemoTestUtil(driver,demo_username, demo_password);
 		//Assert.assertEquals(ret, "success");
 		final JavascriptExecutor jse = (JavascriptExecutor) driver;
 		JSONObject executorObject = new JSONObject();
@@ -77,7 +77,7 @@ public class DemoJenkinsAutomation {
 		browserstackOptions.put("seleniumVersion", "4.0.0");
 		capabilities.setCapability("bstack:options", browserstackOptions);
 		driver = new RemoteWebDriver(new URL("https://" + username + ":" + accessKey + "@hub.browserstack.com/wd/hub"), capabilities);
-		String ret = bstackdemoTestUtil(demo_username, demo_password);
+		String ret = bstackdemoTestUtil(driver, demo_username, demo_password);
 		//Assert.assertEquals(ret, "success");
 		final JavascriptExecutor jse = (JavascriptExecutor) driver;
 		JSONObject executorObject = new JSONObject();
