@@ -100,6 +100,9 @@ public class DemoJenkinsAutomation {
 		try {
 			driver.get("https://bstackdemo.com/");
 			driver.manage().window().maximize();
+			synchronized (driver){
+				driver.wait(5000);
+			}
 			driver.findElement(By.id("signin")).click();
 			synchronized (driver){
 				driver.wait(2000);
