@@ -66,10 +66,12 @@ public class DemoJenkinsAutomation {
 		try {
 			String logged_in_user = driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div/div/div[2]/span")).getText();
 			if(!logged_in_user.equals(demo_username)) {
+				System.out.println("Invalid Credentials");
 				return 0;
 			}
 			
 		} catch(Exception e) {
+			System.out.println("Invalid Credentials");
 			return 0;
 		}
 		driver.findElement(By.xpath("/html/body/div/div/div/main/div[2]/div[2]/div[4]")).click();
