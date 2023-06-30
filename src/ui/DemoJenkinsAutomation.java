@@ -34,6 +34,7 @@ public class DemoJenkinsAutomation {
 		browserstackOptions.put("os", "Windows");
 		browserstackOptions.put("osVersion", "11");
 		browserstackOptions.put("sessionName", "BStack Build Name: " + buildName);
+		browserstackOptions.put("buildName", buildName);
 		browserstackOptions.put("seleniumVersion", "4.0.0");
 		capabilities.setCapability("bstack:options", browserstackOptions);
 		driver = new RemoteWebDriver(new URL("https://" + username + ":" + accessKey + "@hub.browserstack.com/wd/hub"), capabilities);
@@ -67,8 +68,9 @@ public class DemoJenkinsAutomation {
 		capabilities.setCapability("browserVersion", "111.0");
 		HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
 		browserstackOptions.put("os", "OS X");
-		browserstackOptions.put("osVersion", "Monterey");
+		browserstackOptions.put("osVersion", "Ventura");
 		browserstackOptions.put("sessionName", "BStack Build Name: " + buildName);
+		browserstackOptions.put("buildName", buildName);
 		browserstackOptions.put("seleniumVersion", "4.0.0");
 		capabilities.setCapability("bstack:options", browserstackOptions);
 		driver = new RemoteWebDriver(new URL("https://" + username + ":" + accessKey + "@hub.browserstack.com/wd/hub"), capabilities);
