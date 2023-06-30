@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.MutableCapabilities;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -453,7 +454,7 @@ public class DemoJenkinsAutomation {
 				return "no confirmation received";
 			}
 		}
-		catch (Exception e) {
+		catch (NoSuchElementException | InterruptedException e) {
 			return e.toString();
 		}
 	}
