@@ -99,6 +99,309 @@ public class DemoJenkinsAutomation {
 		driver.quit();
 	}
 	
+	@Test
+	public void firefoxTest1() throws MalformedURLException {
+		WebDriver driver;
+		String demo_username = "demouser";
+		String demo_password = "testingisfun99";
+		MutableCapabilities capabilities = new MutableCapabilities();
+		capabilities.setCapability("browserName", "Firefox");
+		capabilities.setCapability("browserVersion", "102.0");
+		HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
+		browserstackOptions.put("os", "Windows");
+		browserstackOptions.put("osVersion", "10");
+		browserstackOptions.put("sessionName", "BStack Build Name: " + buildName);
+		browserstackOptions.put("buildName", buildName);
+		browserstackOptions.put("seleniumVersion", "4.0.0");
+		capabilities.setCapability("bstack:options", browserstackOptions);
+		driver = new RemoteWebDriver(new URL("https://" + username + ":" + accessKey + "@hub.browserstack.com/wd/hub"), capabilities);
+		String ret = bstackdemoTestUtil(driver, demo_username, demo_password);
+		//Assert.assertEquals(ret, "success");
+		final JavascriptExecutor jse = (JavascriptExecutor) driver;
+		JSONObject executorObject = new JSONObject();
+		JSONObject argumentsObject = new JSONObject();
+		argumentsObject.put("status", "<passed/failed>");
+		argumentsObject.put("reason", "<reason>");
+		executorObject.put("action", "setSessionStatus");
+		executorObject.put("arguments", argumentsObject);
+		jse.executeScript(String.format("browserstack_executor: %s", executorObject));
+		if(ret.equals("success")) {
+			System.out.println("Firefox Test1 Passed");
+			jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Successfully placed order\"}}");
+		}
+		else {
+			System.out.println("Firefox Test1 Failed");
+		    jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \""+ret+"\"}}");
+
+		}
+		driver.quit();
+	}
+	
+	@Test
+	public void firefoxTest2() throws MalformedURLException {
+		WebDriver driver;
+		String demo_username = "demouser";
+		String demo_password = "testingisfun99";
+		MutableCapabilities capabilities = new MutableCapabilities();
+		capabilities.setCapability("browserName", "Firefox");
+		capabilities.setCapability("browserVersion", "112.0");
+		HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
+		browserstackOptions.put("os", "OS X");
+		browserstackOptions.put("osVersion", "Big Sur");
+		browserstackOptions.put("sessionName", "BStack Build Name: " + buildName);
+		browserstackOptions.put("buildName", buildName);
+		browserstackOptions.put("seleniumVersion", "4.0.0");
+		capabilities.setCapability("bstack:options", browserstackOptions);
+		driver = new RemoteWebDriver(new URL("https://" + username + ":" + accessKey + "@hub.browserstack.com/wd/hub"), capabilities);
+		String ret = bstackdemoTestUtil(driver, demo_username, demo_password);
+		//Assert.assertEquals(ret, "success");
+		final JavascriptExecutor jse = (JavascriptExecutor) driver;
+		JSONObject executorObject = new JSONObject();
+		JSONObject argumentsObject = new JSONObject();
+		argumentsObject.put("status", "<passed/failed>");
+		argumentsObject.put("reason", "<reason>");
+		executorObject.put("action", "setSessionStatus");
+		executorObject.put("arguments", argumentsObject);
+		jse.executeScript(String.format("browserstack_executor: %s", executorObject));
+		if(ret.equals("success")) {
+			System.out.println("Firefox Test2 Passed");
+			jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Successfully placed order\"}}");
+		}
+		else {
+			System.out.println("Firefox Test2 Failed");
+		    jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \""+ret+"\"}}");
+
+		}
+		driver.quit();
+	}
+	
+	@Test
+	public void ieTest1() throws MalformedURLException {
+		WebDriver driver;
+		String demo_username = "demouser";
+		String demo_password = "testingisfun99";
+		MutableCapabilities capabilities = new MutableCapabilities();
+		capabilities.setCapability("browserName", "IE");
+		capabilities.setCapability("browserVersion", "11.0");
+		HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
+		browserstackOptions.put("os", "Windows");
+		browserstackOptions.put("osVersion", "10");
+		browserstackOptions.put("sessionName", "BStack Build Name: " + buildName);
+		browserstackOptions.put("buildName", buildName);
+		browserstackOptions.put("seleniumVersion", "4.0.0");
+		capabilities.setCapability("bstack:options", browserstackOptions);
+		driver = new RemoteWebDriver(new URL("https://" + username + ":" + accessKey + "@hub.browserstack.com/wd/hub"), capabilities);
+		String ret = bstackdemoTestUtil(driver, demo_username, demo_password);
+		//Assert.assertEquals(ret, "success");
+		final JavascriptExecutor jse = (JavascriptExecutor) driver;
+		JSONObject executorObject = new JSONObject();
+		JSONObject argumentsObject = new JSONObject();
+		argumentsObject.put("status", "<passed/failed>");
+		argumentsObject.put("reason", "<reason>");
+		executorObject.put("action", "setSessionStatus");
+		executorObject.put("arguments", argumentsObject);
+		jse.executeScript(String.format("browserstack_executor: %s", executorObject));
+		if(ret.equals("success")) {
+			System.out.println("IE Test1 Passed");
+			jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Successfully placed order\"}}");
+		}
+		else {
+			System.out.println("IE Test1 Failed");
+		    jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \""+ret+"\"}}");
+
+		}
+		driver.quit();
+	}
+	
+	@Test
+	public void ieTest2() throws MalformedURLException {
+		WebDriver driver;
+		String demo_username = "demouser";
+		String demo_password = "testingisfun99";
+		MutableCapabilities capabilities = new MutableCapabilities();
+		capabilities.setCapability("browserName", "IE");
+		capabilities.setCapability("browserVersion", "10.0");
+		HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
+		browserstackOptions.put("os", "Windows");
+		browserstackOptions.put("osVersion", "8");
+		browserstackOptions.put("sessionName", "BStack Build Name: " + buildName);
+		browserstackOptions.put("buildName", buildName);
+		browserstackOptions.put("seleniumVersion", "4.0.0");
+		capabilities.setCapability("bstack:options", browserstackOptions);
+		driver = new RemoteWebDriver(new URL("https://" + username + ":" + accessKey + "@hub.browserstack.com/wd/hub"), capabilities);
+		String ret = bstackdemoTestUtil(driver, demo_username, demo_password);
+		//Assert.assertEquals(ret, "success");
+		final JavascriptExecutor jse = (JavascriptExecutor) driver;
+		JSONObject executorObject = new JSONObject();
+		JSONObject argumentsObject = new JSONObject();
+		argumentsObject.put("status", "<passed/failed>");
+		argumentsObject.put("reason", "<reason>");
+		executorObject.put("action", "setSessionStatus");
+		executorObject.put("arguments", argumentsObject);
+		jse.executeScript(String.format("browserstack_executor: %s", executorObject));
+		if(ret.equals("success")) {
+			System.out.println("IE Test2 Passed");
+			jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Successfully placed order\"}}");
+		}
+		else {
+			System.out.println("IE Test2 Failed");
+		    jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \""+ret+"\"}}");
+
+		}
+		driver.quit();
+	}
+	
+	@Test
+	public void safariTest1() throws MalformedURLException {
+		WebDriver driver;
+		String demo_username = "demouser";
+		String demo_password = "testingisfun99";
+		MutableCapabilities capabilities = new MutableCapabilities();
+		capabilities.setCapability("browserName", "Safari");
+		capabilities.setCapability("browserVersion", "13.1");
+		HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
+		browserstackOptions.put("os", "OS X");
+		browserstackOptions.put("osVersion", "Catalina");
+		browserstackOptions.put("sessionName", "BStack Build Name: " + buildName);
+		browserstackOptions.put("buildName", buildName);
+		browserstackOptions.put("seleniumVersion", "4.0.0");
+		capabilities.setCapability("bstack:options", browserstackOptions);
+		driver = new RemoteWebDriver(new URL("https://" + username + ":" + accessKey + "@hub.browserstack.com/wd/hub"), capabilities);
+		String ret = bstackdemoTestUtil(driver, demo_username, demo_password);
+		//Assert.assertEquals(ret, "success");
+		final JavascriptExecutor jse = (JavascriptExecutor) driver;
+		JSONObject executorObject = new JSONObject();
+		JSONObject argumentsObject = new JSONObject();
+		argumentsObject.put("status", "<passed/failed>");
+		argumentsObject.put("reason", "<reason>");
+		executorObject.put("action", "setSessionStatus");
+		executorObject.put("arguments", argumentsObject);
+		jse.executeScript(String.format("browserstack_executor: %s", executorObject));
+		if(ret.equals("success")) {
+			System.out.println("Safari Test1 Passed");
+			jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Successfully placed order\"}}");
+		}
+		else {
+			System.out.println("Safari Test1 Failed");
+		    jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \""+ret+"\"}}");
+
+		}
+		driver.quit();
+	}
+	
+	@Test
+	public void safariTest2() throws MalformedURLException {
+		WebDriver driver;
+		String demo_username = "demouser";
+		String demo_password = "testingisfun99";
+		MutableCapabilities capabilities = new MutableCapabilities();
+		capabilities.setCapability("browserName", "Safari");
+		capabilities.setCapability("browserVersion", "16.3");
+		HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
+		browserstackOptions.put("os", "OS X");
+		browserstackOptions.put("osVersion", "Ventura");
+		browserstackOptions.put("sessionName", "BStack Build Name: " + buildName);
+		browserstackOptions.put("buildName", buildName);
+		browserstackOptions.put("seleniumVersion", "4.0.0");
+		capabilities.setCapability("bstack:options", browserstackOptions);
+		driver = new RemoteWebDriver(new URL("https://" + username + ":" + accessKey + "@hub.browserstack.com/wd/hub"), capabilities);
+		String ret = bstackdemoTestUtil(driver, demo_username, demo_password);
+		//Assert.assertEquals(ret, "success");
+		final JavascriptExecutor jse = (JavascriptExecutor) driver;
+		JSONObject executorObject = new JSONObject();
+		JSONObject argumentsObject = new JSONObject();
+		argumentsObject.put("status", "<passed/failed>");
+		argumentsObject.put("reason", "<reason>");
+		executorObject.put("action", "setSessionStatus");
+		executorObject.put("arguments", argumentsObject);
+		jse.executeScript(String.format("browserstack_executor: %s", executorObject));
+		if(ret.equals("success")) {
+			System.out.println("Safari Test2 Passed");
+			jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Successfully placed order\"}}");
+		}
+		else {
+			System.out.println("Safari Test2 Failed");
+		    jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \""+ret+"\"}}");
+
+		}
+		driver.quit();
+	}
+	
+	@Test
+	public void edgeTest1() throws MalformedURLException {
+		WebDriver driver;
+		String demo_username = "demouser";
+		String demo_password = "testingisfun99";
+		MutableCapabilities capabilities = new MutableCapabilities();
+		capabilities.setCapability("browserName", "Edge");
+		capabilities.setCapability("browserVersion", "latest");
+		HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
+		browserstackOptions.put("os", "Windows");
+		browserstackOptions.put("osVersion", "11");
+		browserstackOptions.put("sessionName", "BStack Build Name: " + buildName);
+		browserstackOptions.put("buildName", buildName);
+		browserstackOptions.put("seleniumVersion", "4.0.0");
+		capabilities.setCapability("bstack:options", browserstackOptions);
+		driver = new RemoteWebDriver(new URL("https://" + username + ":" + accessKey + "@hub.browserstack.com/wd/hub"), capabilities);
+		String ret = bstackdemoTestUtil(driver, demo_username, demo_password);
+		//Assert.assertEquals(ret, "success");
+		final JavascriptExecutor jse = (JavascriptExecutor) driver;
+		JSONObject executorObject = new JSONObject();
+		JSONObject argumentsObject = new JSONObject();
+		argumentsObject.put("status", "<passed/failed>");
+		argumentsObject.put("reason", "<reason>");
+		executorObject.put("action", "setSessionStatus");
+		executorObject.put("arguments", argumentsObject);
+		jse.executeScript(String.format("browserstack_executor: %s", executorObject));
+		if(ret.equals("success")) {
+			System.out.println("Edge Test1 Passed");
+			jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Successfully placed order\"}}");
+		}
+		else {
+			System.out.println("Edge Test1 Failed");
+		    jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \""+ret+"\"}}");
+
+		}
+		driver.quit();
+	}
+	
+	@Test
+	public void edgeTest2() throws MalformedURLException {
+		WebDriver driver;
+		String demo_username = "demouser";
+		String demo_password = "testingisfun99";
+		MutableCapabilities capabilities = new MutableCapabilities();
+		capabilities.setCapability("browserName", "Edge");
+		capabilities.setCapability("browserVersion", "111.0");
+		HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
+		browserstackOptions.put("os", "Windows");
+		browserstackOptions.put("osVersion", "10");
+		browserstackOptions.put("sessionName", "BStack Build Name: " + buildName);
+		browserstackOptions.put("buildName", buildName);
+		browserstackOptions.put("seleniumVersion", "4.0.0");
+		capabilities.setCapability("bstack:options", browserstackOptions);
+		driver = new RemoteWebDriver(new URL("https://" + username + ":" + accessKey + "@hub.browserstack.com/wd/hub"), capabilities);
+		String ret = bstackdemoTestUtil(driver, demo_username, demo_password);
+		//Assert.assertEquals(ret, "success");
+		final JavascriptExecutor jse = (JavascriptExecutor) driver;
+		JSONObject executorObject = new JSONObject();
+		JSONObject argumentsObject = new JSONObject();
+		argumentsObject.put("status", "<passed/failed>");
+		argumentsObject.put("reason", "<reason>");
+		executorObject.put("action", "setSessionStatus");
+		executorObject.put("arguments", argumentsObject);
+		jse.executeScript(String.format("browserstack_executor: %s", executorObject));
+		if(ret.equals("success")) {
+			System.out.println("Edge Test2 Passed");
+			jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Successfully placed order\"}}");
+		}
+		else {
+			System.out.println("Edge Test2 Failed");
+		    jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \""+ret+"\"}}");
+
+		}
+		driver.quit();
+	}
 	
 	public String bstackdemoTestUtil(WebDriver driver, String demo_username, String demo_password) {
 		try {
