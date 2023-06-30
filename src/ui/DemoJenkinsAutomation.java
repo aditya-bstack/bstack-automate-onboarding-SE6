@@ -220,10 +220,10 @@ public class DemoJenkinsAutomation {
 		String demo_password = "testingisfun99";
 		MutableCapabilities capabilities = new MutableCapabilities();
 		capabilities.setCapability("browserName", "IE");
-		capabilities.setCapability("browserVersion", "10.0");
+		capabilities.setCapability("browserVersion", "11.0");
 		HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
 		browserstackOptions.put("os", "Windows");
-		browserstackOptions.put("osVersion", "8");
+		browserstackOptions.put("osVersion", "8.1");
 		browserstackOptions.put("sessionName", "BStack Build Name: " + buildName);
 		browserstackOptions.put("buildName", buildName);
 		browserstackOptions.put("seleniumVersion", "4.0.0");
@@ -445,7 +445,11 @@ public class DemoJenkinsAutomation {
 			synchronized (driver){
 				driver.wait(5000);
 			}
+			
 			String str = driver.findElement(By.id("confirmation-message")).getText();
+			if(str == null) {
+				return "no confirmation received";
+			}
 			if(str.contains("successful")) {
 				return "success";
 			}
