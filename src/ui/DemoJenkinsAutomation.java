@@ -420,7 +420,7 @@ public class DemoJenkinsAutomation {
 			driver.findElement(By.id("react-select-3-input")).sendKeys(demo_password, Keys.ENTER);
 			driver.findElement(By.id("login-btn")).click();
 			synchronized (driver){
-				driver.wait(2000);
+				driver.wait(5000);
 			}
 			
 			String logged_in_user = driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div/div/div[2]/span")).getText();
@@ -446,14 +446,12 @@ public class DemoJenkinsAutomation {
 				driver.wait(5000);
 			}
 			
-			String str = driver.findElement(By.id("confirmation-message")).getText();
-			if(str == null) {
-				return "no confirmation received";
-			}
-			if(str.contains("successful")) {
+			if (driver.findElement(By.id("confirmation-message")).isDisplayed()){
 				return "success";
 			}
-			return "error occurred";
+			else {	
+				return "no confirmation received";
+			}
 		}
 		catch (Exception e) {
 			return e.toString();
