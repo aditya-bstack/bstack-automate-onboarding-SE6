@@ -18,7 +18,7 @@ public class DemoJenkinsAutomation {
 	
 	String username = System.getenv("BROWSERSTACK_USERNAME");
 	String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
-	String buildName = System.getenv("JENKINS_LABEL");
+	String buildName = System.getenv("BROWSERSTACK_BUILD_NAME");
 	WebDriver driver;
 	
 	@Test
@@ -65,7 +65,7 @@ public class DemoJenkinsAutomation {
 		}
 		try {
 			String logged_in_user = driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div/div/div[2]/span")).getText();
-			if(!logged_in_user.equals(username)) {
+			if(!logged_in_user.equals(demo_username)) {
 				return 0;
 			}
 			
