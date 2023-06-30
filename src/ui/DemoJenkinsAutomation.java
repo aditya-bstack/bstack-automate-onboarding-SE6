@@ -455,7 +455,7 @@ public class DemoJenkinsAutomation {
 				}
 		}
 		catch (NoSuchElementException e) {
-			return "no confirmation received";
+			return "error occurred";
 		}
 		catch (InterruptedException e) {
 			return e.toString();
