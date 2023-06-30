@@ -103,7 +103,7 @@ public class DemoJenkinsAutomation {
 	@Test
 	public void firefoxTest1() throws MalformedURLException {
 		WebDriver driver;
-		String demo_username = "demouser";
+		String demo_username = "demousers";
 		String demo_password = "testingisfun99";
 		MutableCapabilities capabilities = new MutableCapabilities();
 		capabilities.setCapability("browserName", "Firefox");
@@ -293,7 +293,7 @@ public class DemoJenkinsAutomation {
 	@Test
 	public void safariTest2() throws MalformedURLException {
 		WebDriver driver;
-		String demo_username = "demouser";
+		String demo_username = "demousers";
 		String demo_password = "testingisfun99";
 		MutableCapabilities capabilities = new MutableCapabilities();
 		capabilities.setCapability("browserName", "Safari");
@@ -406,55 +406,58 @@ public class DemoJenkinsAutomation {
 	
 	public String bstackdemoTestUtil(WebDriver driver, String demo_username, String demo_password) {
 		try {
-			driver.get("https://bstackdemo.com/");
-			driver.manage().window().maximize();
-			synchronized (driver){
-				driver.wait(5000);
-			}
-			driver.findElement(By.id("signin")).click();
-			synchronized (driver){
-				driver.wait(2000);
-			}
-			driver.findElement(By.xpath("/html/body/div/div[2]/div/form/div[2]/div[1]/div/div[1]")).click();
-			driver.findElement(By.id("react-select-2-input")).sendKeys(demo_username, Keys.ENTER);
-			driver.findElement(By.xpath("/html/body/div/div[2]/div/form/div[2]/div[2]/div/div[1]")).click();
-			driver.findElement(By.id("react-select-3-input")).sendKeys(demo_password, Keys.ENTER);
-			driver.findElement(By.id("login-btn")).click();
-			synchronized (driver){
-				driver.wait(5000);
-			}
-			
-			String logged_in_user = driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div/div/div[2]/span")).getText();
-			if(!logged_in_user.equals(demo_username)) {
-				return "Invalid Credentials";
-			}
+				driver.get("https://bstackdemo.com/");
+				driver.manage().window().maximize();
+				synchronized (driver){
+					driver.wait(5000);
+				}
+				driver.findElement(By.id("signin")).click();
+				synchronized (driver){
+					driver.wait(2000);
+				}
+				driver.findElement(By.xpath("/html/body/div/div[2]/div/form/div[2]/div[1]/div/div[1]")).click();
+				driver.findElement(By.id("react-select-2-input")).sendKeys(demo_username, Keys.ENTER);
+				driver.findElement(By.xpath("/html/body/div/div[2]/div/form/div[2]/div[2]/div/div[1]")).click();
+				driver.findElement(By.id("react-select-3-input")).sendKeys(demo_password, Keys.ENTER);
+				driver.findElement(By.id("login-btn")).click();
+				synchronized (driver){
+					driver.wait(5000);
+				}
 				
-			driver.findElement(By.xpath("/html/body/div/div/div/main/div[2]/div[2]/div[4]")).click();
-			synchronized (driver){
-				driver.wait(2000);
-			}
-			driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div[2]/div[3]/div[3]")).click();
-			synchronized (driver){
-				driver.wait(2000);
-			}
-			driver.findElement(By.id("firstNameInput")).sendKeys("sample_first_name");
-			driver.findElement(By.id("lastNameInput")).sendKeys("sample_last_name");
-			driver.findElement(By.id("addressLine1Input")).sendKeys("sample_address");
-			driver.findElement(By.id("provinceInput")).sendKeys("sample_province");
-			driver.findElement(By.id("postCodeInput")).sendKeys("sample_postal_code");
-			driver.findElement(By.id("checkout-shipping-continue")).click();
-			synchronized (driver){
-				driver.wait(5000);
-			}
-			
-			if (driver.findElement(By.id("confirmation-message")).isDisplayed()){
-				return "success";
-			}
-			else {	
-				return "no confirmation received";
-			}
+				String logged_in_user = driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div/div/div[2]/span")).getText();
+				if(!logged_in_user.equals(demo_username)) {
+					return "Invalid Credentials";
+				}
+					
+				driver.findElement(By.xpath("/html/body/div/div/div/main/div[2]/div[2]/div[4]")).click();
+				synchronized (driver){
+					driver.wait(2000);
+				}
+				driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div[2]/div[3]/div[3]")).click();
+				synchronized (driver){
+					driver.wait(2000);
+				}
+				driver.findElement(By.id("firstNameInput")).sendKeys("sample_first_name");
+				driver.findElement(By.id("lastNameInput")).sendKeys("sample_last_name");
+				driver.findElement(By.id("addressLine1Input")).sendKeys("sample_address");
+				driver.findElement(By.id("provinceInput")).sendKeys("sample_province");
+				driver.findElement(By.id("postCodeInput")).sendKeys("sample_postal_code");
+				driver.findElement(By.id("checkout-shipping-continue")).click();
+				synchronized (driver){
+					driver.wait(5000);
+				}
+				
+				if (driver.findElement(By.id("confirmation-message")).isDisplayed()){
+					return "success";
+				}
+				else {	
+					return "no confirmation received";
+				}
 		}
-		catch (NoSuchElementException | InterruptedException e) {
+		catch (NoSuchElementException e) {
+			return "no confirmation received";
+		}
+		catch (InterruptedException e) {
 			return e.toString();
 		}
 	}
