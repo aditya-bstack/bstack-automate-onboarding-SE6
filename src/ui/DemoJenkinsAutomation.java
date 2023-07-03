@@ -14,6 +14,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
@@ -26,6 +27,7 @@ public class DemoJenkinsAutomation {
 	
 	@Test
 	public void demoTest1() throws MalformedURLException {
+		Reporter.log("[[PROPERTY|id=TC-79025]]\n", true);
 		WebDriver driver;
 		String demo_username = "demouser";
 		String demo_password = "testingisfun99";
@@ -65,6 +67,7 @@ public class DemoJenkinsAutomation {
 	
 	@Test
 	public void demoTest2() throws MalformedURLException {
+		Reporter.log("[[PROPERTY|id=TC-79026]]\n", true);
 		WebDriver driver;
 		String demo_username = "demousers";
 		String demo_password = "testingisfun99";
