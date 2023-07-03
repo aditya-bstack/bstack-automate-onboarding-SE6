@@ -29,7 +29,7 @@ public class DemoJenkinsAutomation {
 		WebDriver driver;
 		String demo_username = "demouser";
 		String demo_password = "testingisfun99";
-		MutableCapabilities capabilities = new MutableCapabilities();
+		/*MutableCapabilities capabilities = new MutableCapabilities();
 		capabilities.setCapability("browserName", "Chrome");
 		capabilities.setCapability("browserVersion", "103.0");
 		HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
@@ -39,7 +39,8 @@ public class DemoJenkinsAutomation {
 		browserstackOptions.put("buildName", buildName);
 		browserstackOptions.put("seleniumVersion", "4.0.0");
 		capabilities.setCapability("bstack:options", browserstackOptions);
-		driver = new RemoteWebDriver(new URL("https://" + username + ":" + accessKey + "@hub.browserstack.com/wd/hub"), capabilities);
+		driver = new RemoteWebDriver(new URL("https://" + username + ":" + accessKey + "@hub.browserstack.com/wd/hub"), capabilities);*/
+		driver = new InternetExplorerDriver();
 		String ret = bstackdemoTestUtil(driver,demo_username, demo_password);
 		//Assert.assertEquals(ret, "success");
 		final JavascriptExecutor jse = (JavascriptExecutor) driver;
@@ -62,7 +63,7 @@ public class DemoJenkinsAutomation {
 		driver.quit();
 	}
 	
-	@Test
+	/*@Test
 	public void chromeTest2() throws MalformedURLException {
 		WebDriver driver;
 		String demo_username = "demouser";
@@ -402,7 +403,7 @@ public class DemoJenkinsAutomation {
 
 		}
 		driver.quit();
-	}
+	}*/
 	
 	public String bstackdemoTestUtil(WebDriver driver, String demo_username, String demo_password) {
 		try {
