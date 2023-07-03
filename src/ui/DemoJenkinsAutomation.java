@@ -52,11 +52,11 @@ public class DemoJenkinsAutomation {
 		executorObject.put("arguments", argumentsObject);
 		jse.executeScript(String.format("browserstack_executor: %s", executorObject));
 		if(ret.equals("success")) {
-			System.out.println("Chrome Test1 Passed");
+			System.out.println("Test1 Passed");
 			jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Successfully placed order\"}}");
 		}
 		else {
-			System.out.println("Chrome Test1 Failed");
+			System.out.println("Test1 Failed");
 		    jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \""+ret+"\"}}");
 
 		}
@@ -91,11 +91,11 @@ public class DemoJenkinsAutomation {
 		executorObject.put("arguments", argumentsObject);
 		jse.executeScript(String.format("browserstack_executor: %s", executorObject));
 		if(ret.equals("success")) {
-			System.out.println("Chrome Test1 Passed");
+			System.out.println("Test2 Passed");
 			jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Successfully placed order\"}}");
 		}
 		else {
-			System.out.println("Chrome Test1 Failed");
+			System.out.println("Test2 Failed");
 		    jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \""+ret+"\"}}");
 
 		}

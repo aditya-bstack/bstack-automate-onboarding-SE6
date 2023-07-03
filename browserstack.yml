@@ -22,7 +22,7 @@ platforms:
     osVersion: 11
     browserName: Edge
     browserVersion: latest  
-parallelsPerPlatform: 1
+parallelsPerPlatform: 2
 browserstackLocal: false
 buildName: aditya-bstack-demo
 buildIdentifier: ${BUILD_NUMBER}
