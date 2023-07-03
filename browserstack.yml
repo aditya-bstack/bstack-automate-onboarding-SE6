@@ -7,14 +7,6 @@ platforms:
     browserName: Chrome
     browserVersion: 103.0
   - os: OS X
-    osVersion: Monterey
-    browserName: Chrome
-    browserVersion: 111.0
-  - os: Windows
-    osVersion: 10
-    browserName: Firefox
-    browserVersion: 102.0
-  - os: OS X
     osVersion: Big Sur
     browserName: Firefox
     browserVersion: 112.0
@@ -22,14 +14,6 @@ platforms:
     osVersion: 10
     browserName: IE
     browserVersion: 11.0
-  - os: Windows
-    osVersion: 8
-    browserName: IE
-    browserVersion: 10.0
-  - os: OS X
-    osVersion: Catalina
-    browserName: Safari
-    browserVersion: 13.1
   - os: OS X
     osVersion: Ventura
     browserName: Safari
@@ -37,11 +21,7 @@ platforms:
   - os: Windows
     osVersion: 11
     browserName: Edge
-    browserVersion: latest
-  - os: Windows
-    osVersion: 10
-    browserName: Edge
-    browserVersion: 111.0  
+    browserVersion: latest  
 parallelsPerPlatform: 1
 browserstackLocal: false
 buildName: aditya-bstack-demo

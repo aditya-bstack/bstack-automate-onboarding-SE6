@@ -25,9 +25,48 @@ public class DemoJenkinsAutomation {
 	
 	
 	@Test
-	public void chromeTest1() throws MalformedURLException {
+	public void demoTest1() throws MalformedURLException {
 		WebDriver driver;
 		String demo_username = "demouser";
+		String demo_password = "testingisfun99";
+		/*MutableCapabilities capabilities = new MutableCapabilities();
+		capabilities.setCapability("browserName", "Chrome");
+		capabilities.setCapability("browserVersion", "103.0");
+		HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
+		browserstackOptions.put("os", "Windows");
+		browserstackOptions.put("osVersion", "11");
+		browserstackOptions.put("sessionName", "BStack Build Name: " + buildName);
+		browserstackOptions.put("buildName", buildName);
+		browserstackOptions.put("seleniumVersion", "4.0.0");
+		capabilities.setCapability("bstack:options", browserstackOptions);
+		driver = new RemoteWebDriver(new URL("https://" + username + ":" + accessKey + "@hub.browserstack.com/wd/hub"), capabilities);*/
+		driver = new InternetExplorerDriver();
+		String ret = bstackdemoTestUtil(driver,demo_username, demo_password);
+		//Assert.assertEquals(ret, "success");
+		final JavascriptExecutor jse = (JavascriptExecutor) driver;
+		JSONObject executorObject = new JSONObject();
+		JSONObject argumentsObject = new JSONObject();
+		argumentsObject.put("status", "<passed/failed>");
+		argumentsObject.put("reason", "<reason>");
+		executorObject.put("action", "setSessionStatus");
+		executorObject.put("arguments", argumentsObject);
+		jse.executeScript(String.format("browserstack_executor: %s", executorObject));
+		if(ret.equals("success")) {
+			System.out.println("Chrome Test1 Passed");
+			jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Successfully placed order\"}}");
+		}
+		else {
+			System.out.println("Chrome Test1 Failed");
+		    jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \""+ret+"\"}}");
+
+		}
+		driver.quit();
+	}
+	
+	@Test
+	public void demoTest2() throws MalformedURLException {
+		WebDriver driver;
+		String demo_username = "demousers";
 		String demo_password = "testingisfun99";
 		/*MutableCapabilities capabilities = new MutableCapabilities();
 		capabilities.setCapability("browserName", "Chrome");
