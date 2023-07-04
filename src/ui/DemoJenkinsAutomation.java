@@ -23,14 +23,17 @@ public class DemoJenkinsAutomation {
 	String username = System.getenv("BROWSERSTACK_USERNAME");
 	String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
 	String buildName = System.getenv("BROWSERSTACK_BUILD_NAME");
+	String demo_username_correct = System.getenv("BSTACK_DEMO_USERNAME_CORRECT");
+	String demo_username_wrong = System.getenv("BSTACK_DEMO_USERNAME_WRONG");
+	String demo_pass = System.getenv("BSTACK_DEMO_PASSWORD");
 	
 	
 	@Test
 	public void demoTest1() throws MalformedURLException {
 		Reporter.log("[[PROPERTY|id=TC-79025]]\n", true);
 		WebDriver driver;
-		String demo_username = "demouser";
-		String demo_password = "testingisfun99";
+		String demo_username = demo_username_correct;
+		String demo_password = demo_pass;
 		/*MutableCapabilities capabilities = new MutableCapabilities();
 		capabilities.setCapability("browserName", "Chrome");
 		capabilities.setCapability("browserVersion", "103.0");
@@ -69,8 +72,8 @@ public class DemoJenkinsAutomation {
 	public void demoTest2() throws MalformedURLException {
 		Reporter.log("[[PROPERTY|id=TC-79026]]\n", true);
 		WebDriver driver;
-		String demo_username = "demousers";
-		String demo_password = "testingisfun99";
+		String demo_username = demo_username_wrong;
+		String demo_password = demo_pass;
 		/*MutableCapabilities capabilities = new MutableCapabilities();
 		capabilities.setCapability("browserName", "Chrome");
 		capabilities.setCapability("browserVersion", "103.0");
